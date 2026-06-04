@@ -1,78 +1,43 @@
-import java.math.BigDecimal;
-import java.util.ArrayList;
-
 public class BankAccount {
 
-    private String accountNumber;
-    private String holderName;
-    private BigDecimal balance;
-    private ArrayList<String> transactionHistory;
+    private double balance;
 
-    public BankAccount(String accountNumber, String holderName) {
-        this.accountNumber = accountNumber;
-        this.holderName = holderName;
-        this.balance = BigDecimal.ZERO;
-        this.transactionHistory = new ArrayList<>();
-
-        transactionHistory.add("Account Opened with Balance: ₹0");
+    public BankAccount() {
+        balance = 0.0;
     }
 
-    public String getAccountNumber() {
-        return accountNumber;
-    }
+    public void deposit(double amount) {
 
-    public String getHolderName() {
-        return holderName;
-    }
-
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public void deposit(BigDecimal amount) {
-
-        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
-            System.out.println("Amount must be greater than zero.");
+        if (amount <= 0) {
+            System.out.println("Deposit amount must be positive.");
             return;
         }
 
-        balance = balance.add(amount);
-
-        transactionHistory.add("Deposited ₹" + amount);
+        balance += amount;
 
         System.out.println("Deposit Successful.");
+        System.out.printf("Updated Balance: %.2f%n", balance);
     }
 
-    public void withdraw(BigDecimal amount) {
+    public void withdraw(double amount) {
 
-        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
-            System.out.println("Amount must be greater than zero.");
+        if (amount <= 0) {
+            System.out.println("Withdrawal amount must be positive.");
             return;
         }
 
-        if (amount.compareTo(balance) > 0) {
+        if (amount > balance) {
             System.out.println("Insufficient Funds.");
             return;
         }
 
-        balance = balance.subtract(amount);
-
-        transactionHistory.add("Withdrawn ₹" + amount);
+        balance -= amount;
 
         System.out.println("Withdrawal Successful.");
+        System.out.printf("Updated Balance: %.2f%n", balance);
     }
 
-    public void printStatement() {
-
-        System.out.println("\n===== ACCOUNT STATEMENT =====");
-        System.out.println("Account Number : " + accountNumber);
-        System.out.println("Holder Name    : " + holderName);
-        System.out.println("Balance        : ₹" + balance);
-
-        System.out.println("\nTransaction History:");
-
-        for (String transaction : transactionHistory) {
-            System.out.println(transaction);
-        }
+    public double getBalance() {
+        return balance;
     }
 }

@@ -4,35 +4,38 @@
 
 This is a console-based Banking Application developed as part of the WeIntern Java Developer Internship.
 
-The application allows users to create bank accounts, deposit money, withdraw money, check balances, and view transaction history. It demonstrates the use of Core Java concepts including OOP, Collections, Exception Handling, and BigDecimal for accurate monetary calculations.
+The application simulates basic banking operations such as depositing money, withdrawing money, and checking account balance. The project focuses on Java class design, method implementation, input validation, exception handling, and object-oriented programming principles.
 
 ---
 
 # Features
 
-✅ Open New Bank Account  
-✅ Deposit Money  
-✅ Withdraw Money  
-✅ Check Account Balance  
-✅ Print Account Statement  
-✅ Transaction History Logging  
-✅ Multiple Account Management using ArrayList  
-✅ Search Account by Account Number  
-✅ Insufficient Funds Validation  
-✅ Negative Amount Validation  
-✅ Menu-Driven Console Application  
+✅ Deposit Money
+
+✅ Withdraw Money
+
+✅ Balance Inquiry
+
+✅ Menu-Driven Console Application
+
+✅ Input Validation
+
+✅ Exception Handling
+
+✅ Overdraft Protection
+
+✅ User-Friendly Messages
 
 ---
 
 # Technologies Used
 
-- Java
-- BigDecimal
-- ArrayList
-- OOP (Object-Oriented Programming)
-- Exception Handling
-- VS Code
-- Git & GitHub
+* Java
+* Object-Oriented Programming (OOP)
+* Exception Handling
+* Scanner Class
+* VS Code
+* Git & GitHub
 
 ---
 
@@ -43,14 +46,25 @@ Task2_BankingApplication/
 │
 ├── images/
 │   ├── menu.png
-│   ├── open-account.png
 │   ├── deposit.png
-│   └── statement.png
+│   ├── withdraw.png
+│   └── balance.png
 │
 ├── BankAccount.java
-├── BankingApplication.java
+├── BankingApp.java
+├── Main.java
 └── README.md
 ```
+
+---
+
+# Class Responsibilities
+
+| Class       | Responsibility                                 |
+| ----------- | ---------------------------------------------- |
+| BankAccount | Stores balance and performs account operations |
+| BankingApp  | Handles menu logic and user interaction        |
+| Main        | Starts the application                         |
 
 ---
 
@@ -65,60 +79,221 @@ javac *.java
 ## Step 2: Run the Application
 
 ```bash
-java BankingApplication
-```
-
----
-
-# Sample Output
-
-```text
-===== BANKING APPLICATION =====
-1. Open Account
-2. Deposit
-3. Withdraw
-4. Check Balance
-5. Print Statement
-6. Exit
-
-Enter Choice:
+java Main
 ```
 
 ---
 
 # Application Menu
 
-![Menu](images/menu.png)
+```text
+=================================
+      BANKING APPLICATION
+=================================
+1. Deposit
+2. Withdraw
+3. Balance Inquiry
+4. Exit
+
+Enter your choice:
+```
 
 ---
 
-# Open Account
+# Screenshots
 
-![Open Account](images/open-account.png)
+## Main Menu
 
----
-
-# Deposit Money
-
-![Deposit Money](images/deposit.png)
+![Main Menu](images/main.png)
 
 ---
 
-# Account Statement
+## Deposit Operation
 
-![Account Statement](images/statement.png)
+![Deposit](images/deposit.png)
 
 ---
 
-# Validation Features
+## Withdraw Operation
 
-The application handles several edge cases:
+![Withdraw](images/withdrawl.png)
 
-- Prevents deposits of zero or negative amounts
-- Prevents withdrawals of zero or negative amounts
-- Prevents withdrawals when balance is insufficient
-- Prevents duplicate account numbers
-- Prevents empty account holder names
+---
+
+## Balance Inquiry
+
+![Balance Inquiry](images/balance-enquiry.png)
+
+---
+
+# Core Operations
+
+## Deposit
+
+The deposit operation:
+
+* Accepts positive amounts only
+* Updates the account balance
+* Displays the updated balance
+* Rejects invalid or negative values
+
+### Example
+
+```text
+Enter Deposit Amount: 5000
+
+Deposit Successful.
+Updated Balance: 5000.00
+```
+
+---
+
+## Withdraw
+
+The withdrawal operation:
+
+* Accepts positive amounts only
+* Checks available balance
+* Prevents overdraft attempts
+* Displays appropriate messages
+
+### Example
+
+```text
+Enter Withdrawal Amount: 2000
+
+Withdrawal Successful.
+Updated Balance: 3000.00
+```
+
+---
+
+## Balance Inquiry
+
+Displays the current balance in a user-friendly format.
+
+### Example
+
+```text
+Current Balance: 3000.00
+```
+
+---
+
+# Exception Handling
+
+The application handles:
+
+### Invalid Numeric Input
+
+```text
+Invalid input. Please enter a numeric value.
+```
+
+### Negative Deposit
+
+```text
+Deposit amount must be positive.
+```
+
+### Negative Withdrawal
+
+```text
+Withdrawal amount must be positive.
+```
+
+### Insufficient Funds
+
+```text
+Insufficient Funds.
+```
+
+### Invalid Menu Choice
+
+```text
+Invalid Choice.
+```
+
+---
+
+# Test Scenarios
+
+## Test Case 1: Successful Deposit
+
+**Input**
+
+```text
+1
+5000
+```
+
+**Expected Output**
+
+```text
+Deposit Successful.
+Updated Balance: 5000.00
+```
+
+---
+
+## Test Case 2: Successful Withdrawal
+
+**Input**
+
+```text
+2
+2000
+```
+
+**Expected Output**
+
+```text
+Withdrawal Successful.
+Updated Balance: 3000.00
+```
+
+---
+
+## Test Case 3: Insufficient Balance
+
+**Input**
+
+```text
+2
+10000
+```
+
+**Expected Output**
+
+```text
+Insufficient Funds.
+```
+
+---
+
+## Test Case 4: Invalid Input
+
+**Input**
+
+```text
+abc
+```
+
+**Expected Output**
+
+```text
+Invalid input. Please enter a numeric value.
+```
+
+---
+
+# Design Principles Used
+
+* Encapsulation using private balance field
+* Separation of concerns using multiple classes
+* Input validation before processing
+* Exception handling for runtime errors
+* Clean and maintainable code structure
 
 ---
 
@@ -126,16 +301,18 @@ The application handles several edge cases:
 
 Through this project, I learned:
 
-- Java OOP concepts
-- BigDecimal for financial calculations
-- ArrayList operations
-- Searching objects in collections
-- Transaction history management
-- Exception handling and validation
-- Git & GitHub workflow
+* Java Class Design
+* Method Implementation
+* Exception Handling
+* Input Validation
+* Menu-Driven Application Development
+* Object-Oriented Programming
+* Git & GitHub Workflow
 
 ---
 
 # Author
 
-Gunjan
+**Gunjan**
+
+Java Developer Intern
