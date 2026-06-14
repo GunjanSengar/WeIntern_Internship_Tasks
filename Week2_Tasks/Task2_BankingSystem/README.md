@@ -284,7 +284,7 @@ java Main
 
 ## Main Menu
 
-![Menu](images/menu.png)
+![Menu](images/home-page.png)
 
 ---
 
@@ -296,19 +296,13 @@ java Main
 
 ## Deposit Operation
 
-![Deposit](images/deposit.png)
+![Deposit](images/deposit(2).png)
 
 ---
 
 ## Withdraw Operation
 
 ![Withdraw](images/withdraw.png)
-
----
-
-## Transfer Money
-
-![Transfer](images/transfer.png)
 
 ---
 
